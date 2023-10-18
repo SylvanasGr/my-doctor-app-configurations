@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      metrics:
+        enabled: true
+      routes:
+        - id: dummy-service
+          uri: lb://dummy-service/
+          predicates:
+            - Path=/api/dummy/**
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 9999
