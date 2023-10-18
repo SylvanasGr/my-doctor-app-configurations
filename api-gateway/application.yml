@@ -16,6 +16,20 @@ management:
     web:
       exposure:
         include: '*'
+  application:
+    name: gateway-service
 
 server:
   port: 9999
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway.route.RouteDefinitionLocator: INFO
+    org.springframework.cloud.gateway: TRACE
+
