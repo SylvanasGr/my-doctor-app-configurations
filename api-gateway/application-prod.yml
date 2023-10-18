@@ -1,0 +1,11 @@
+this:
+  is:
+    dummy:
+      configuration:
+        for:
+          production:
+            profile: true
+
+
+server:
+  port: 99999
