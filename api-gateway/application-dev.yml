@@ -5,3 +5,7 @@ this:
         for:
           dev:
             profile: true
+
+
+server:
+  port: 10000
