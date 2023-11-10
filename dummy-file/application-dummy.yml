@@ -1,3 +1,2 @@
-test:
-  test:
-    test: true
+server:
+  port: 8666
