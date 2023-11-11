@@ -1,45 +1,35 @@
 spring:
-    loadbalancer:
-      ribbon:
-        enabled: false
-    gateway:
-      metrics:
+  loadbalancer:
+    ribbon:
+      enabled: false
+  gateway:
+    metrics:
+      enabled: true
+    discover:
+      locator:
         enabled: true
-      discover:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: dummy-service
-          uri: lb://dummy-service
-          predicates:
-            - Path=/api/dummy/**
-        - id: dummy-service2
-          uri: lb://dummy-service2
-          predicates:
-            - Path=/api/dummy2/**
+        lower-case-service-id: true
+    routes:
+      - id: dummy-service
+        uri: lb://dummy-service
+        predicates:
+          - Path=/api/dummy/**
+      - id: dummy-service2
+        uri: lb://dummy-service2
+        predicates:
+          - Path=/api/dummy2/**
 
-#management:
-#  endpoint:
-#    gateway:
-#      enabled: true
-#  endpoints:
-#    web:
-#      exposure:
-#        include: '*'
-#  application:
-#    name: api-gateway
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  application:
+    name: api-gateway
 
 server:
   port: 9999
 
-eureka:
-  instance:
-    instance-id: ${spring.application.name}-${random.uuid}
-
 logging:
   level:
     root: INFO
-    org.springframework.cloud.gateway.route.RouteDefinitionLocator: INFO
-    org.springframework.cloud.gateway: TRACE
-
