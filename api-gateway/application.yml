@@ -13,8 +13,8 @@ spring:
       routes:
         - id: dummy-service
           uri: lb://dummy-service
-#          predicates:
-#            - Path=/api/dummy/**
+          predicates:
+            - Path=/api/dummy/*
         - id: dummy-service2
           uri: lb://dummy-service2
           predicates:
