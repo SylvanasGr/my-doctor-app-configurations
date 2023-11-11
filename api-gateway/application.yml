@@ -8,7 +8,7 @@ spring:
           uri: lb://dummy-service/
           predicates:
             - Path=/api/ds/**
-        - id: dummy-service
+        - id: dummy-service2
           uri: lb://dummy-service2/
           predicates:
             - Path=/api/ds2/**
