@@ -1,15 +1,24 @@
 spring:
-  application:
-    name: api-gateway
-  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
     gateway:
       metrics:
         enabled: true
+      discover:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - id: dummy-service
-          uri: lb://dummy-service/
+          uri: lb://dummy-service
           predicates:
             - Path=/api/dummy/**
+        - id: dummy-service2
+          uri: lb://dummy-service2
+          predicates:
+            - Path=/api/dummy2/**
+
 management:
   endpoint:
     gateway:
