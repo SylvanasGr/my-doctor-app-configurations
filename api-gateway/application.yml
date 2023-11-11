@@ -5,7 +5,7 @@ spring:
   gateway:
     metrics:
       enabled: true
-    discover:
+    discovery:
       locator:
         enabled: true
         lower-case-service-id: true
