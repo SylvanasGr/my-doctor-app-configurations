@@ -3,11 +3,11 @@ spring:
     gateway:
       metrics:
         enabled: true
-      routes:
-        - id: dummy-service
-          uri: lb://dummy-service/
-          predicates:
-            - Path=/api/ds/**
+#      routes:
+#        - id: dummy-service
+#          uri: lb://dummy-service/
+#          predicates:
+#            - Path=/api/ds/**
 #        - id: osm-data-rules
 #          uri: lb://osm-data-rules/
 #          predicates:
