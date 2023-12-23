@@ -12,6 +12,10 @@ spring:
           uri: lb://dummy-service2/
           predicates:
             - Path=/api/ds2/**
+        - id: authorization-service
+          uri: lb://authorization-service/
+          predicates:
+            - Path=/api/auth/**
 management:
   endpoint:
     gateway:
