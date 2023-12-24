@@ -1,6 +1,8 @@
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay
       metrics:
         enabled: true
       routes:
@@ -18,15 +20,16 @@ spring:
 #            - Path=/api/auth/**
   security:
     oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/springboot-microservice-realm
+      client:
+        provider:
+          microservice-auth-provider:
+            issuer-uri: http://localhost:8080/realms/springboot-microservice-realm
+        registration:
+          microservice-auth:
+            provider: microservice-auth-provider
+            scope: openid
+            client-id:
+            client-secret:
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
 
-management:
-  endpoint:
-    gateway:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: '*'
