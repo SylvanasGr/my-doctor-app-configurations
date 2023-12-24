@@ -12,6 +12,10 @@ spring:
           uri: lb://dummy-service2/
           predicates:
             - Path=/api/ds2/**
+        - id: my-doctor-app-service
+          uri: lb://my-doctor-app-service/
+          predicates:
+            - Path=/api/my-doctor-app-service/**
 #        - id: authorization-service
 #          uri: lb://authorization-service/
 #          predicates:
