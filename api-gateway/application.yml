@@ -8,19 +8,23 @@ spring:
           uri: lb://dummy-service/
           predicates:
             - Path=/api/ds/**
+          filters:
+            - TokenRelay=
         - id: dummy-service2
           uri: lb://dummy-service2/
           predicates:
             - Path=/api/ds2/**
-        - id: authorization-service
-          uri: lb://authorization-service/
-          predicates:
-            - Path=/api/auth/**
+          filters:
+            - TokenRelay=
+#        - id: authorization-service
+#          uri: lb://authorization-service/
+#          predicates:
+#            - Path=/api/auth/**
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/springboot-microservice-realm
+          issuer-uri: http://localhost:8080/auth/realms/springboot-microservice-realm
 
 management:
   endpoint:
