@@ -1,8 +1,6 @@
 spring:
   cloud:
     gateway:
-      default-filters:
-        - TokenRelay
       metrics:
         enabled: true
       routes:
