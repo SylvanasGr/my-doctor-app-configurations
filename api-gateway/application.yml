@@ -1,6 +1,8 @@
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay
       metrics:
         enabled: true
       routes:
@@ -16,10 +18,14 @@ spring:
 #          uri: lb://authorization-service/
 #          predicates:
 #            - Path=/api/auth/**
-
   security:
     oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/springboot-microservice-realm
-
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/springboot-microservice-realm
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: microservice-auth
+            client-secret: i9y07waNc2xWTfuRgE46yt6OKAq32T0t
