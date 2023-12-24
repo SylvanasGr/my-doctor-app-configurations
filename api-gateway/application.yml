@@ -20,7 +20,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issue-uri: http://localhost:8080/realms/springboot-microservice-realm
+          issuer-uri: http://localhost:8080/realms/springboot-microservice-realm
+
 management:
   endpoint:
     gateway:
