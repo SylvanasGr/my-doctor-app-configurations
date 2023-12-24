@@ -15,7 +15,7 @@ spring:
         - id: my-doctor-app-service
           uri: lb://my-doctor-app-service/
           predicates:
-            - Path=/api/my-doctor-app-service/**
+            - Path=/api/app/**
 #        - id: authorization-service
 #          uri: lb://authorization-service/
 #          predicates:
