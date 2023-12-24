@@ -8,18 +8,19 @@ spring:
           uri: lb://dummy-service/
           predicates:
             - Path=/api/ds/**
-          filters:
-            - AuthenticationFilter
         - id: dummy-service2
           uri: lb://dummy-service2/
           predicates:
             - Path=/api/ds2/**
-          filters:
-            - AuthenticationFilter
         - id: authorization-service
           uri: lb://authorization-service/
           predicates:
             - Path=/api/auth/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issue-uri: http://localhost:8080/realms/springboot-microservice-realm
 management:
   endpoint:
     gateway:
