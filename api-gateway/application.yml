@@ -8,6 +8,10 @@ spring:
           uri: lb://payment-service/
           predicates:
             - Path=/api/payment/**
+        - id: notification-service
+          uri: lb://notification-service/
+          predicates:
+            - Path=/api/notification/**
         - id: doctorapp
           uri: lb://doctorapp/
           predicates:
