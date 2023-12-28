@@ -12,6 +12,12 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/doctor-app-realm
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: pgtest
+    password: pgtest
+    driver-class-name: org.postgresql.Driver
+
 
 management:
   endpoint:
