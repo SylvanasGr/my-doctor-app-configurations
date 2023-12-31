@@ -31,4 +31,6 @@ management:
 server:
   port: 9001
 
-
+microservice:
+  retrievePatientsInformationUrl: "http://doctor-app:8500/api/doctor-app/info/patient/retrieve-patient-info"
+  retrieveDoctorsInformationUrl:  "http://doctor-app:8500/api/doctor-app/info/doctor/retrieve-doctor-info"
